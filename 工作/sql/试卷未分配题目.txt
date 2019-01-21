@@ -1,0 +1,5 @@
+select  tq.TOPIC_Id,tq.TOPIC_DES,tq.TOPIC_DIFFICT,tq.topic_score,tq.TOPIC_SOURCE,
+GROUP_CONCAT(qo.OPTION_DES,"") OPTION_DES from 
+(select * from t_sys_questions where TOPIC_ID not in('03b009deccd54dbea2935f955b50c5da'))tq 
+left JOIN t_sys_questions_option qo on tq.TOPIC_ID=qo.TOPIC_ID and qo.`STATUS`='1'
+WHERE tq.APPLY_TYPE='B' and tq.`STATUS`='1' and tq.PARENT_ID is null GROUP BY tq.TOPIC_Id 

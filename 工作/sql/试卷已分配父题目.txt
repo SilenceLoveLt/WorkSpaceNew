@@ -1,0 +1,6 @@
+﻿select DISTINCT q.TOPIC_Id,tq.TOPIC_DES,tq.TOPIC_DIFFICT,tq.TOPIC_SCORE,tq.TOPIC_SOURCE,
+GROUP_CONCAT(qo.OPTION_DES,"") OPTION_DES from t_traexa_questions_plan p 
+left JOIN t_traexa_questions q on p.PLANID=q.PLANID 
+left JOIN (select * from t_sys_questions where TOPIC_SCORE='1')tq on q.TOPIC_ID=tq.TOPIC_ID and p.APPLY_TYPE=tq.APPLY_TYPE 
+left JOIN t_sys_questions_option qo on tq.TOPIC_ID=qo.TOPIC_ID and qo.`STATUS`='1'
+WHERE p.PLANID='c501aff2d4154ca78d1a617aa0575bc6' and tq.`STATUS`='1' and tq.PARENT_ID is null GROUP BY q.TOPIC_Id ORDER BY q.TOPIC_SORT

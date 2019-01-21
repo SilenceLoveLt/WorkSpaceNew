@@ -1,0 +1,24 @@
+<!-- ÌâÄ¿ÅÅÐò -->
+   <update id="updateTopicSort" parameterType="java.util.List">
+     update t_traexa_questions 
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="topic_sort =case" suffix="end,">
+                 <foreach collection="list" item="item" index="index">
+                     <if test="item.topicSort!=null">
+                         when POID=#{item.poid} then #{item.topicSort}
+                     </if>
+                     <if test="item.topicSort== null">
+                         when POID=#{item.poid} then t_traexa_questions.topic_sort
+                     </if>
+                 </foreach>
+            </trim>
+        </trim>
+        where  
+        <foreach collection="list" index="index" item="item" separator="or" open="(" close=")">
+           PLANID  = #{item.planId,jdbcType=VARCHAR}
+        </foreach>
+         and 
+        <foreach collection="list" index="index" item="item" separator="or" open="(" close=")">
+           TOPIC_ID = #{item.topicId,jdbcType=VARCHAR}
+        </foreach>
+  </update>

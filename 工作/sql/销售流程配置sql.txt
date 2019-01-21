@@ -1,0 +1,161 @@
+SELECT
+	tepdf.ID,
+	tepdf.DETAIL_ID,
+	tepp.PLANID planid,
+	smpf.field_id fieldId,
+	smpf.FIELD_NAME fieldName,
+	a.FIELD_VALUE fieldValue,
+	smpf.ENG_NAME fieldCode,
+	smpf.CATEGORY category,
+	smpf.FIELD_TYPE fieldType,
+	smpf.RULE rule,
+	smpf.SORT sort,
+	tepdf.REQUIRED required,
+	tepdf.IS_EDIT isEdit,
+	tepdf.IS_DISPLAY isDisplay,
+	tepdf.DEFAULT_VAL defaultVal,
+	tepdf.ALLOW_VAL allowVal,
+	tepdf.ALLOW_ROW allowRow,
+	tepdf.ALLOW_COL allowCol,
+	tepdf.USER_DEFINE1 userDefine1,
+	tepdf.USER_DEFINE2 userDefine2,
+	tepdf.USER_DEFINE3 userDefine3,
+	tepdf.USER_DEFINE5 userDefine5,
+	tepdf.USER_DEFINE4 userDefine4,
+	tep.PROCESS_CODE processCode,
+	tepp.PLAN_CODE planCode,
+	tepp.PLAN_TYPE planType
+FROM
+	SYS_MODEL_PAGE_FIELD smpf
+LEFT JOIN T_ENTPROCESS_PLAN_DETAIL_FIELD tepdf ON smpf.field_id = tepdf.FIELD_ID
+LEFT JOIN T_ENTPROCESS_PLAN_DETAIL tepd ON tepd.detail_id = tepdf.DETAIL_ID
+LEFT JOIN T_ENTPROCESS_PERIODS tep ON tep.PROCESS_ID = tepd.PROCESS_ID
+LEFT JOIN T_ENTPROCESS_PLAN tepp ON tepp.PLANID = tepd.PLANID
+LEFT JOIN t_cus_member_entprocess_fieldvalue a ON a.INFO_ID ='32c23f7d159f46a4aa57563026b3367f'
+AND a.PROCESS_ID ='af6de41b521847a0a670a9d8a2fc1a001'
+AND a.FIELD_ID = smpf.field_id
+AND a.PLANID = tepd.PLANID
+WHERE
+	1 = 1
+AND tep.PROCESS_CODE ='CALCULATION'
+AND tepp.PLAN_CODE ='TBDEFAULT'
+AND tepp.PLAN_TYPE ='TB'
+AND (tepp.ORG_ID =null OR null IS NULL)
+AND (tepp.CHANNEL =null OR null IS NULL)
+ and IFNULL(tepdf.USER_DEFINE4,' ') = ' ' 
+ORDER BY
+	sort ;
+-- 1070002
+
+select * from T_ENTPROCESS_PLAN_DETAIL_FIELD t where t.ID='2976bbdd80cc481f85da649774bfa70f' or t.USER_DEFINE4='2976bbdd80cc481f85da649774bfa70f';
+
+select * from  T_ENTPROCESS_PLAN_DETAIL_FIELD t where t.USER_DEFINE4='f26ace51a6e24d779f25ffbc14bdf6eb';
+
+SELECT * FROM T_ENTPROCESS_PLAN_DETAIL t where t.PLANID='9b1ddb2db60941a29882e4c43a277f16' ORDER BY t.SORT;
+SELECT * FROM  T_ENTPROCESS_PLAN_DETAIL_FIELD t where t.DETAIL_ID='d39a0dcd633b46deb85a6f6ba9163fae' AND t.FIELD_ID = 'a7db72a3b6f640c3b98404a307925c5b';
+
+SELECT * FROM sys_model_page_field WHERE FIELD_NAME like '%Í¶±£ÈË%'
+
+
+select * from SYS_MODEL_PAGE_FIELD t where t.FIELD_ID in (
+	select FIELD_ID from  T_ENTPROCESS_PLAN_DETAIL_FIELD t where t.USER_DEFINE4='f26ace51a6e24d779f25ffbc14bdf6eb' and 
+);
+
+select * from T_ENTPROCESS_PLAN_DETAIL_FIELD t  where t.ID ='f26ace51a6e24d779f25ffbc14bdf6eb';
+
+select * from  T_ENTPROCESS_PLAN_DETAIL_FIELD t where t.USER_DEFINE4='f26ace51a6e24d779f25ffbc14bdf6eb' and t.FIELD_ID in (
+	'692b1dab495642ebb87881c1154f19ec','aec3152721de4a0eb0cb38a7eeeafe4b','e5d423068a3e4a8a88d83887e9bec550','ea359c9b658642e9a45db63c515a62ee','7238f31907784d5292f735d3f0e6b30f'
+)
+
+
+
+
+select * from T_ENTPROCESS_PLAN_DETAIL_FIELD t where t.DETAIL_ID ='d39a0dcd633b46deb85a6f6ba9163fae' and IFNULL(t.USER_DEFINE4,' ')=' ' ORDER BY t.SORT;
+
+select * from T_ENTPROCESS_PLAN_DETAIL_FIELD t where t.USER_DEFINE4 ='f26ace51a6e24d779f25ffbc14bdf6eb';
+
+
+
+
+SELECT t2.*
+FROM (
+SELECT
+	result.*, (
+		CASE
+		WHEN result.userDefine4 IS NULL THEN
+			'¸¸×Ó¶Î'
+		WHEN result.userDefine4 = '' THEN
+			'¸¸×Ó¶Î'
+		ELSE
+			result1.fieldName
+		END
+	) groupField
+FROM
+	(
+		SELECT
+			smpf.field_id fieldId,
+			smpf.FIELD_NAME fieldName,
+			smpf.ENG_NAME engName,
+			smpf.CATEGORY category,
+			smpf.FIELD_TYPE fieldType,
+			smpf.RULE rule,
+			smpf.SORT sort,
+			tepdf.id id,
+			tepdf.REQUIRED required,
+			tepdf.IS_EDIT isEdit,
+			tepdf.IS_DISPLAY isDisplay,
+			tepdf.DEFAULT_VAL defaultVal,
+			tepdf.ALLOW_VAL allowVal,
+			tepdf.ALLOW_ROW allowRow,
+			tepdf.ALLOW_COL allowCol,
+			tepdf.USER_DEFINE1 userDefine1,
+			tepdf.USER_DEFINE2 userDefine2,
+			tepdf.USER_DEFINE3 userDefine3,
+			tepdf.USER_DEFINE4 userDefine4,
+			tepdf.USER_DEFINE5 userDefine5
+		FROM
+			SYS_MODEL_PAGE_FIELD smpf
+		LEFT JOIN T_ENTPROCESS_PLAN_DETAIL_FIELD tepdf ON smpf.field_id = tepdf.FIELD_ID
+		LEFT JOIN T_ENTPROCESS_PLAN_DETAIL tepd ON tepd.detail_id = tepdf.DETAIL_ID
+		WHERE
+			1 = 1
+		AND smpf.`STATUS` != '0'
+		AND tepdf.DETAIL_ID ='d39a0dcd633b46deb85a6f6ba9163fae'
+		ORDER BY
+			tepdf.USER_DEFINE4,
+			smpf.UPDATE_TIME DESC,
+			smpf.SORT
+	) result
+LEFT JOIN (
+	SELECT
+		smpf.FIELD_NAME fieldName,
+		tepdf.id id,
+		tepdf.USER_DEFINE4 userDefine4
+	FROM
+		SYS_MODEL_PAGE_FIELD smpf
+	LEFT JOIN T_ENTPROCESS_PLAN_DETAIL_FIELD tepdf ON smpf.field_id = tepdf.FIELD_ID
+	LEFT JOIN T_ENTPROCESS_PLAN_DETAIL tepd ON tepd.detail_id = tepdf.DETAIL_ID
+	WHERE
+		1 = 1
+	AND smpf.`STATUS` != '0'
+) result1 ON result1.id = result.userDefine4 ) t2
+WHERE t2.groupField LIKE '%¸¸×Ó¶Î%'
+
+
+
+
+
+
+SELECT * from	t_traexa_questions t WHERE t.planid = '91d8b275d59743b38518c0fbd71be873'
+
+SELECT
+	q.*
+FROM
+	t_questions q
+LEFT JOIN t_traexa_questions t ON q.TOPIC_ID = t.TOPIC_ID
+WHERE
+	t.`STATUS` = '1'
+AND t.PLANID IN ('91d8b275d59743b38518c0fbd71be873')
+ORDER BY
+	q.topic_type,
+	q.update_time DESC

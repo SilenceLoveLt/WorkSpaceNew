@@ -1,0 +1,11 @@
+select f.ID,f.MENU_ID,f.MENU_NAME,f.PARENT_ID,
+   s.ID SID,s.MENU_ID SMENU_ID,s.MENU_NAME SMENU_NAME,s.PARENT_ID SPARENT_ID,
+   t.ID TID,t.MENU_ID TMENU_ID,t.MENU_NAME TMENU_NAME,t.PARENT_ID TPARENT_ID,
+   fo.ID FID,fo.MODLE_ID FMODLE_ID,fo.MODLE_NAME FMODLE_NAME,if(rm.`STATUS`>'0','2','1')FSTATUS,fo.MENU_ID FMENU_ID
+   
+   FROM t_sys_menu f 
+   LEFT JOIN t_sys_menu s on f.MENU_ID = s.PARENT_ID   and s.status='1'
+   LEFT JOIN t_sys_menu t on s.MENU_ID = t.PARENT_ID   and t.status='1'
+   LEFT JOIN t_sys_menu_model fo on t.MENU_ID = fo.MENU_ID  and fo.status='1'
+   LEFT JOIN t_sys_role_menu rm on fo.MODLE_ID = rm.MENU_ID  and rm.status='1' and rm.ROLE_ID = '814c0880c8c94dc197315469803f6328'
+   WHERE f.PARENT_ID='-1' and f.status='1' 

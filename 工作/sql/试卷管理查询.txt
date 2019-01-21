@@ -1,0 +1,15 @@
+﻿select  t.ID ID, t.PLANID PLANID, t.TYPE_ID TYPE_ID, t.RULE_ID RULE_ID, t.CLASS_ID CLASS_ID,t.CLASS_NAME CLASS_NAME,
+        t.COURSE_ID COURSE_ID, t.PLAN_CODE PLAN_CODE, t.PLAN_NAME PLAN_NAME,t.PLAN_SORT PLAN_SORT,t.CLASS_METHOD CLASS_METHOD,
+        t.PLAN_DES PLAN_DES, t.PLAN_DEFAULT PLAN_DEFAULT, t.PLAN_DURATION PLAN_DURATION, t.TOTAL_SCORE TOTAL_SCORE,
+        t.REQ_MONEY REQ_MONEY, t.REQ_POINTS REQ_POINTS, t.BEGIN_TIME BEGIN_TIME,t.END_TIME END_TIME,t.APPLY_TYPE APPLY_TYPE,
+        t.`STATUS` `STATUS`, t.CREATE_TIME CREATE_TIME, t.UPDATE_TIME UPDATE_TIME,
+        p.TYPE_NAME,e.RULE_NAME,c.CLASS_NAME,b.`NAME`,b1.`NAME`,b2.`NAME`
+        
+from t_traexa_questions_plan t
+left JOIN t_traexa_protype p on t.TYPE_ID=p.TYPE_ID and p.`STATUS`='1'
+left JOIN t_traexa_exarule e on t.RULE_ID=e.RULE_ID and e.`STATUS`='1'
+left JOIN t_traexa_class   c on t.CLASS_ID=c.CLASS_ID and c.`STATUS`='1'
+left JOIN t_base_code b on b.`CODE`=t.APPLY_TYPE and b.CODE_TYPE='APPLYTYPE' and b.`STATUS`='1'
+left JOIN t_base_code b1 on b1.`CODE`=t.PLAN_DEFAULT and b1.CODE_TYPE='YESORNO' and b1.`STATUS`='1'
+left JOIN t_base_code b2 on b1.`CODE`=t.`STATUS` and b2.CODE_TYPE='STATUS' and b2.`STATUS`='1'
+where t.`STATUS` !='0'
