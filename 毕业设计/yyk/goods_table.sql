@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS `goods_table`;
 CREATE TABLE `goods_table` (
   `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '序号',
   `GOODS_ID` varchar(100) NOT NULL DEFAULT '' COMMENT '货物编号',
+  `ORDER_ID` varchar(100) NOT NULL DEFAULT '' COMMENT '订单编号',
   `GOODS_CODE` varchar(40) DEFAULT NULL COMMENT '货物编码',
   `GOODS_NAME` varchar(100) DEFAULT NULL COMMENT '货物名称',
   `GOODS_TYPE` varchar(100) DEFAULT NULL COMMENT '货物类别',

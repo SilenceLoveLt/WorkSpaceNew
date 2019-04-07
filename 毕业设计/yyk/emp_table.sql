@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `emp_table`;
 CREATE TABLE `emp_table` (
   `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '序号',
   `EMP_ID` varchar(100) NOT NULL DEFAULT '' COMMENT '员工编号',
-  `EMP_NAME` varchar(100) DEFAULT NULL COMMENT '员工名称',
+  `EMP_NAME` varchar(100) DEFAULT NULL COMMENT '员工用户名',
   `PASSWORD` varchar(100) DEFAULT NULL COMMENT '员工密码',
   `PHONE` varchar(40) DEFAULT NULL COMMENT '电话号码',
   `ROLEID` int(11) DEFAULT NULL COMMENT '员工标识',

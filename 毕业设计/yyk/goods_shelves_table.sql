@@ -25,6 +25,8 @@ CREATE TABLE `goods_shelves_table` (
   `SHELVES_ID` varchar(100) DEFAULT NULL COMMENT '货架编号',
   `GOODS_ID` varchar(100) DEFAULT NULL COMMENT '货物编号',
   `GOODS_CODE` varchar(40) DEFAULT NULL COMMENT '货物编码',
+  `IN_TIME` date DEFAULT NULL COMMENT '入库时间',
+  `OUT_TIME` date DEFAULT NULL COMMENT '出库时间',
   `STATUS` int(11) DEFAULT NULL COMMENT '状态',
   `CREATE_TIME` date DEFAULT NULL COMMENT '创建时间',
   `UPDATE_TIME` date DEFAULT NULL COMMENT '修改时间',
