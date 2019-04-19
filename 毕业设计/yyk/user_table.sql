@@ -23,6 +23,7 @@ CREATE TABLE `user_table` (
   `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '序号',
   `USER_ID` varchar(100) NOT NULL DEFAULT '' COMMENT '客户编号',
   `USER_NAME` varchar(100) DEFAULT NULL COMMENT '客户姓名',
+  `USER_CODE` varchar(100) DEFAULT NULL COMMENT '客户编码',
   `USER_PWD` varchar(100) DEFAULT NULL COMMENT '客户密码',
   `USER_PHONE` varchar(40) DEFAULT NULL COMMENT '电话号码',
   `ADDR` varchar(100) DEFAULT NULL COMMENT '地址',
