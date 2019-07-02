@@ -1,7 +1,0 @@
-INSERT INTO `goods_shelves_table` VALUES (2, '08f429dfc3f84546aa154bsdcc726ead', '08f429dfc3f84546aa154b88dc726ead', '12f429dfc3f84546aa154b88dc726e12', 'SEFGYTT', '2019-5-9', '2019-5-10', 0, '2019-5-9', '2019-5-10', '1');
-INSERT INTO `goods_shelves_table` VALUES (1, '08f429dfc3f84546aa15we88dc726e12', '08f429dfc3f84546aa154b88dc726ead', '08f429dfc3f84546aa154b88dc726e12', 'WEGDYS', '2019-5-9', '2019-5-10', 0, '2019-5-9', '2019-5-10', '1');
-INSERT INTO `goods_shelves_table` VALUES (7, '2f14c22caedd42a39d90scx2a3823ec3', '2f14c22caedd42a39d90e642a3823ec3', '12f429dfc3f84546aa154b88dc726e12', 'SEFGYTT', '2019-5-10', NULL, 1, '2019-5-10', '2019-5-10', '1');
-INSERT INTO `goods_shelves_table` VALUES (4, '4fac112f6fc64aa5ba60eb56412ed3ff', '08f429dfc3f84546aa154b88dc726ead', 'cc981368966344e1a815c6bd90f56401', 'TWYSB', '2019-5-10', NULL, 1, '2019-5-10', '2019-5-10', NULL);
-INSERT INTO `goods_shelves_table` VALUES (6, '553f6bca5dcd41b9a49b46223ecfcd54', '08f429dfc3f84546aa154b88dc726ead', '12f429dfc3f84546aa154b88dc726e12', 'SEFGYTT', '2019-5-10', NULL, 1, '2019-5-10', '2019-5-10', NULL);
-INSERT INTO `goods_shelves_table` VALUES (3, 'cc981368966344e1a815csdc90f56401', '2f14c22caedd42a39d90e642a3823ec3', '08f429dfc3f84546aa154b88dc726e12', 'WEGDYS', '2019-5-9', '2019-5-9', 1, '2019-5-9', '2019-5-10', '1');
-INSERT INTO `goods_shelves_table` VALUES (5, 'fae1d38fc23341b698a84e0a05f8fcea', '08f429dfc3f84546aa154b88dc726ead', '08f429dfc3f84546aa154b88dc726e12', 'WEGDYS', '2019-5-10', NULL, 1, '2019-5-10', '2019-5-10', NULL);
